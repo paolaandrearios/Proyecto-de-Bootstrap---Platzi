@@ -1,0 +1,389 @@
+<!-- 
+  
+  Repositorio del Curso: https://github.com/platzi/bootstrap
+
+  https://getbootstrap.com/
+  
+  *********************
+  Frameworks Frontend: ** Conocidos también como Frameworks CSS. Son una base para empezar un proyecto web, permite Flexibilidad en el Diseño. Nos ayuda a tener una Organización y Estructura del HTML, CSS y JS.
+
+¿Qué contiene un Framework Frontend?
+Grilla: Organiza el contenido de un sitio web, adaptando el contenido a cualquier dispositivo.
+Estilos para Fuentes & Componentes Visuales Pre-armados: Se pueden utilizar para organizar información.
+
+¿Para qué nos ayuda un Framework Frontend?
+
+Ahorrar Tiempo.
+Responsive Design, sitio web adaptable a cualquier dispositivo
+No tenemos que preocuparnos por la compatibilidad con otros browsers
+Ejemplos de Frameworks Frontend
+
+Bootstrap
+Foundation
+Bulma
+Tailwind
+
+Apuntes:
+Para acceder a usar Bootstrap, nos dirigimos a la pagina https://getbootstrap.com/ y podemos descargar la carpeta que contiene toda la usabilidad del framework (HTML, CSS JS) o simplemente podemos agregar los enlaces CDN para su uso.
+Enlace de descarga y CDN: https://getbootstrap.com/docs/4.3/getting-started/download/
+
+
+Es importante precisar que existen 2 formas para utiliza bootstrap:
+
+1. Mediante el CDN: En este video, Sacha copia la plantilla de inicio que, contiene la referencia a los css y a 3 archivos javascript. Dentro de los cJS están:
+**a. **La referencia a JQuery (Sí, utiliza JQuery para las funciones que css, por obvias razones no podría implementar)
+b. Referencia a Popper.JS: Esta herramienta nos sirve para crear los popUps (esos mensajes flotantes que se muestran al posicionar el cursor en un lugar predeterminado)
+**c. **Finalmente llama al JS de bootstrap.
+
+Por otro lado, noten que cada referencia contiene un .min dentro de sus nombres (por ejemplo; bootstrap.min.css, …jquery-3.3.1.slim.min.js, etc) que no es más que la versión minificada(sin espacios) de
+cada archivo de código.
+
+2. Descargando todos los archivos comprimidos:
+Otra de las opciones es descargando todos los archivos que componen Bootstrap, esta opción es interesante ya que te permite trabajar sin conexión a internet, cosa que no puedes hacer con laa opción anterior.
+
+***************************************************
+La grilla de Bootstrap
+
+Apuntes:
+Bootstrap maneja un sistema de 12 grillas (o cuadriculas) que pueden gestionarse con las clases “.row” (para filas) o “.col” (para columnas).
+En cada fila, puede haber un máximo de 12 columnas (en caso de que hayan mas de 12, la columna subsiguiente se ubicara en la siguiente fila).
+- Container Nos crea un contenedor con un ancho fijo (ancho máximo) en cada uno de los tamaños de dispositivo.
+
+- Container-fluidNos crea un contenedor (igual que el anterior) pero sin un ancho fijo aparente, por lo que ocuparía todo el ancho de la pantalla.
+Breakpoints: Son puntos de ruptura en el diseño web responsive en los que la pantalla cambia de layout
+
+Los **Containers ** son el elemento más básico dentro del Grid System de Bootstrap.
+
+El **container ** es el que va a contener a la rejilla, el cual tiene un ancho fijo, y permanecerá así dependiendo de la resolución de los dispositivos donde se esté desplegando el sitio.
+
+El container-fluid aprovecha el 100% del espacio que tengamos disponible, no importando la resolución donde estemos viendo el sitio web.
+
+Dentro del **container ** se deben de incluir las filas con la clase row y las columnas con la clase col.
+
+Cada rejilla tiene como máximo 12 columnas, a menos a que lo modifiquemos.
+
+Al no especificar el ancho de las columnas, éstas se lo repartiran equitativamente.
+
+*************************************
+
+Cabe mencionar que los margin y los padding también se les puede especificar cuanto se les quieres agregar en función del tamaño de la pantalla, respetando también el mobile first, por ejemplo pb-4 es padding bottom indistinto al tamaño, pero pb-4 pb-md-2 quiere decir que desde las pantallas pequeñas tendrá un padding bottom de 4 y cuando entre al breakpoint de los medianos sera de 2.
+
+Propiedades de espaciado
+
+m - para las clases que establecen margin
+
+p - para las clases que establecen padding
+
+Donde los lados es uno de:
+
+t- para las clases que establecen margin-top o padding-top
+
+b- para las clases que establecen margin-bottom o padding-bottom
+
+l- para las clases que establecen margin-left o padding-left
+
+r- para las clases que establecen margin-right o padding-right
+
+x- para las clases que establecen tanto -left y -right
+
+y- para las clases que establecen tanto -top y -bottom
+
+en blanco - para las clases que establecen un margin o padding en los 4 lados del elemento
+Donde el tamaño es uno de:
+
+0- Para las clases que eliminen el margino padding configurándolo como.0
+
+1- (por defecto) para las clases que establecen margino padding para $ spacer * .25
+
+2- (por defecto) para las clases que establecen margino padding para $ spacer * .5
+
+3- (por defecto) para las clases que establecen margino padding para $ spacer
+
+4- (por defecto) para las clases que establecen margino padding para $ spacer * 1.5
+
+5- (por defecto) para las clases que establecen margino padding para $ spacer * 3
+
+auto- Para las clases que configuran el margin auto.
+
+
+En bootstrap 5 ya no se usa ml-auto para llevar los elementos a la derecha. Ahora se usa ms-auto. En bootstrap 4 era l y r para left y right, Ahora es:
+s = start
+e = end
+
+Creando un carousel de imágenes
+El carousel nos permite ver un conjunto de imágenes y mostrarlas de manera automática. Encuentra más información en https://getbootstrap.com/docs/4.1/components/carousel/
+
+para booststrap v5 se cancela la pausa con el hover en la imagen con la siguiente clase: data-bs-pause=“false”
+
+Agregando texto informativo del evento
+Ahora vamos a incluir un texto informativo sobre nuestro carousel de imágenes. Encuentra más información de los botones en https://getbootstrap.com/docs/4.1/components/buttons/
+
+Si el texto del overlay no se muestra o se queda debajo del carousel la solución es agregar la clase carousel-caption al div que tiene la clase overlay quedando así:
+
+<div class="overlay carousel-caption">
+........
+</div>
+
+Algo de lo que se uso en esta clase:
+text-right: El texto que esta dentro del elemento se corre hacia la derecha.
+text-md-right: El texto se correrá a la derecha a partir de tamaños de pantalla medianos
+text-center: el texto se alineará al centro por defecto.
+offset: Corre los elementos hacia la derecha. Ejemplo:
+col-md-offset-6: Corre a partir de pantallas medianas, 6 elementos hacia la derecha.
+align-items-center: Las columnas dentro de la fila se alinean verticalmente al centro.
+**Nota: **Para poder centrar verticalmente, recordemos que la altura del container y del row ocupan su espacio mínimo, por lo que debemos apuntar a que ocupen el 100% del alto de su elemento padre (overlay), por lo que debemos ponerle un height del 100%.
+d-none: El elemento con esta clase tendrá un display: none por defecto.
+d-md-block: El elemento con esta clase añadida tendrá un display: block a partir de tamaños de pantalla medianos.
+
+en bootstrap v5 para alinear texto a la derecha es text-end
+
+
+Las cards de Bootstrap 4
+
+Conoceremos el feature de Cards de Bootstrap. Para más información consulta: https://getbootstrap.com/docs/4.1/components/card/. Tenemos un reto para ti: ya que sabes como crear las cards por speaker, queremos que cambies el numero de tarjetas que se muestran por el tipo de dispositivo.
+
+
+Los formularios de Bootstrap 4
+
+Aquí el ** form con validaciones** :
+
+Se pueden utilizar las clases en el form:
+
+class=“was-validated” - Para que se muestren en rojo los campos y el usuario observe que tiene que llenarlos
+class=“needs-validation” - Al momento en el que se lanza el submit del button se realiza la validación y le entrega el feedback al usuario de los campos correctos e incorrectos.
+
+<section id="conviertete-en-orador" class="pt-4 pb-4">
+      <div class="container">
+        <div class="row">
+          <div class="col text-uppercase text-center">
+            <small>Conviértete en un</small>
+            <h2>Orador</h2>
+          </div>
+        </div>
+        <div class"row">
+          <div class="col text-center">
+            Anótate como orador para darnos una charla ignite.
+            Cuéntanos de qué quieres hablar!
+          </div>
+        </div>
+        <div class="row">
+          <div class="col col-md-8 offset-md-2 col-lg-8 offset-lg-2 pt-2">
+            <form class="needs-validation" novalidate>
+              <div class="form-row">
+                <div class="form-group col-12 col-md-6">
+                  <input type="text" class="form-control" placeholder="Nombre" required>
+                  <div class="valid-feedback">
+                    Correcto!!
+                  </div>
+                  <div class="invalid-feedback">
+                    Por favor ingresa tu nombre.
+                  </div>
+                </div>
+                <div class="form-group col-12 col-md-6">
+                  <input type="text" class="form-control" placeholder="Apellido" required>
+                  <div class="valid-feedback">
+                    Correcto!!
+                  </div>
+                  <div class="invalid-feedback">
+                    Por favor ingresa tu apellido.
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col">
+                  <textarea class="form-control form-control-lg" placeholder="Sobre qué quieres hablar?" required></textarea>
+                  <div class="valid-feedback">
+                    Correcto!!
+                  </div>
+                  <div class="invalid-feedback">
+                    Debes de escribir sobre qué quieres hablar.
+                  </div>
+                  <small class="form-text text-muted">
+                    Recuerda incluir un título a tu charla.
+                  </small>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col">
+                  <button type="submit" class="btn btn-platzi btn-block">Enviar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+Es necesario también agregar el js para que realice las validaciones:
+
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
+
+
+A considerar:
+
+su el elemento <button>…</button> dentro de sus atributos type tiene como valor: type=“button”, NO se aplicará la validación mediante el campo: required, por lo tanto, es necesario reemplazar el valor del atributo “type” por: “submit”, tal como lo implementó el compañero LuisDark123 .
+En resumen:
+
+<button type="submit" class="btn btn-platzi btn-block">Enviar</button>
+
+https://getbootstrap.com/docs/4.1/components/forms/#validation
+
+Para lograr que una objeto tenga validaciones simplemente le agregas la propiedad required .
+
+<input type="text" class="form-control" placeholder="First name" required>
+
+Required es una de las validaciones, en esta caso para que no se pueda enviar el campo vacio, hay más si el campo es para un email, le pones type=“email” y lo que el usuario introduzca debera parecer un email con @.
+
+Apuntes:
+Bootstrap nos permite trabajar con formularios, puesto que tiene un modulo muy extenso para interactuar con formularios de multiples maneras.
+La clase “.form-group” nos permite darle cierto espaciado a los input.
+Con la clase “.form-control-lg” especificamos que es un input del formulario como tal, pero que lleva un tamaño grande.
+Con la clase “.form-text” especificamos que es un texto para el formulario y con “.text-muted” especificamos que va a tener una tonalidad gris.
+Con la clase “.btn-block” podemos hacer que el botón ocupe todo el ancho disponible.
+
+No olviden agregar name="" para tener autocompletado:
+
+<div class="form-row">
+	<div class="form-group col-md-6">
+		<input type="text" name="name" class="form-control" placeholder="Nombre">
+	</div>
+	<div class="form-group col-md-6">
+		<input type="text" name="lastname" class="form-control" placeholder="Apellido">
+	</div>
+</div>
+
+Tener en cuenta que las clases usadas en los formularios
+Las filas
+
+<div class="form-row">
+Las columnas
+
+<div class="form-group col">
+Los controles
+
+<input type="text" class="form-control">
+<textarea name="text" class="form-control">
+
+
+
+	IMPORTANTE
+
+Si estas en el 2021 y las clases no te funcionan, te dejo el codigo con las clases que corresponden ahora
+
+<form>
+  <div class="form row">
+      <div class="mb-3 form-group col-12 col-md-6">
+          <input type="text" class="form-control" placeholder="Nombre">
+      </div>
+      <div class="mb-3 col-12 col-md-6">
+          <input type="text" class="form-control" placeholder="Apellido">
+      </div>
+  </div>
+  <div class="form row">
+      <div class="mb-3 col">
+          <textarea name="text" class="form-control form-control-lg" placeholder="Sobre que quieres hablar?"></textarea>
+          <small class="form-text text-muted">
+              Recuerda incluir un titulo para tu charla
+          </small>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col">
+          <button type="button" class="btn btn-platzi w-100">Enviar</button>
+      </div>
+  </div> 
+</form>
+
+*****************************************************
+Agregando un tooltip
+
+En esta clase aprenderemos a incluir abreviaciones, que es un componente que le permite al visitante de tu página tener una definición inmediata de una palabra. Para más información checa este website: https://getbootstrap.com/docs/4.1/content/typography/#abbreviations y también agregaremos tooltips un plugin de jQuery que ya viene incluído en Bootstrap: https://getbootstrap.com/docs/4.1/components/tooltips/
+
+
+¿Que es un tooltip?
+Un tooltip (también llamada descripción emergente) es una herramienta de ayuda visual, que funciona al situar el cursor sobre algún elemento gráfico, mostrando una ayuda adicional para informar al usuario de la finalidad del elemento sobre el que se encuentra.
+
+Los tooltip son una variación de los globos de ayuda y es un complemento muy usado en programación y diseño, dado que proporcionan información adicional sin necesidad de que el usuario la solicite de forma activa.
+
+IMPORTANTE
+
+Si estas en el 2021 y no te funcional el tootip, prueba este codigo
+
+En html
+
+data-bs-toggle="tooltip"```
+
+En js
+
+$(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+})``
+
+Apuntes:
+
+Bootstrap nos permite hacer referencia a una palabra y mostrar una pequeña descripción acerca de la misma a traves de tooltips.
+abbr: Esta etiqueta es representada como una abreviación, junto con el atributo “title”, permite hacer una descripción acerca de la palabra abreviada.
+A la etiqueta abbr, podemos incluirle un aributo llamado ‘data-toggle=”tooltip”’, a lo que posteriormente debemos crearle un script al final del documento html y escribir dentro del mismo lo siguiente:
+$(function(){ $('[data-bs-toggle="tooltip"').tooltip() })
+Esto nos permitirá añadirle una mejor visibilidad al tooltip.
+
+************************
+Scrollspy: Conociendo la ubicación del usuario en el header
+
+El scrollspy le permite al usuario conocer la posición dentro del sitio. Revisa más sobre este componente en: https://getbootstrap.com/docs/4.1/components/scrollspy/
+
+A LOS QUE NO LO FUNCIONA EL sticky-top, EN LAS NUEVAS VERSIONES DE BOOTSTRAP NO SE USA ASI, AHORA LO CAMBIARON POR fixed-top
+
+Apuntes:
+Bootstrap nos permite saber la ubicación actual del menú donde nos encontramos a traves de la herramienta scroolspy. Para que esto sea posible debemos hacer lo siguiente:
+
+Ir a la documentación como apoyo para implementación: https://getbootstrap.com/docs/4.1/components/scrollspy/
+
+Asignarle al body los atributos de:
+data-spy="scroll" data-target="#navbar"
+
+Asignarle al div que contiene las etiquetas <a> de nagevacion la id de “navbar”.
+<div class="collapse navbar-collapse" id="navbar">
+
+Debemos asignar a los atributos “href” del menú de navegación las id que le colocamos a las secciones anteriormente.
+
+Podemos opcionalmente agregar la clase a la etiqueta <nav> de “.sticky-top” para que la barra de navegación nos acompañe.
+
+Es recomendable remover la clase “active” al ítem de navegación de inicio.
+
+Debemos asignar una clase adicional la etiqueta de body, la cual es “.data-offset=[numero]” y como número, debemos asignarle el alto de la barra de navegación. De esta manera optimizamos el Scrollspy.
+
+************************
+Agregando un modal para comprar tickets
+
+En esta clase aprenderemos sobre los modals, que son básicamente mostrar un mensaje en una ventana emergente. Conoce más sobre los modals aquí: https://getbootstrap.com/docs/4.1/components/modal/
+
+Proyecto ejemplo creado desde cero:
+
+https://github.com/LuisValladaresC/platzi-conf
+
+
+
+-->
